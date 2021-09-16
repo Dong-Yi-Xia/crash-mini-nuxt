@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="id">
+  <nuxt-link :to="`/jokes/${id}`">
     <div class="joke">
       <p>{{ joke }}</p>
     </div>
@@ -9,7 +9,10 @@
 <script>
 export default {
   name: 'Joke',
-  props: ['joke', 'id']
+  props: {
+    joke: String,
+    id: String
+  }
 }
 </script>
 

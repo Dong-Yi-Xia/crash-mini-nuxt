@@ -5,9 +5,9 @@
       <!-- don't use the <a> tag use the nuxk-link with to path -->
       <!-- inside the pages folder, the route /path will the the folder name having index.vue or with a folder just filename.vue -->
       <li>
-        <nuxt-link to='/'>Home</nuxt-link>
-        <nuxt-link to='/jokes'>Jokes</nuxt-link>
-        <nuxt-link to='/about'>About</nuxt-link>
+        <nuxt-link to="/">Home</nuxt-link>
+        <nuxt-link to="/jokes">Jokes</nuxt-link>
+        <nuxt-link to="/about">About</nuxt-link>
       </li>
     </ul>
   </header>
