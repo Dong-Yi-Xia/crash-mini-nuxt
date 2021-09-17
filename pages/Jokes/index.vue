@@ -1,6 +1,8 @@
 <template>
   <div>
     <h1>Jokes HomePage</h1>
+    <!-- <SearchJokes v-on:search-text="searchText"/>  v-on shorthand @ - eventListener-->
+    <SearchJokes @search-text="searchText"/>
     <Joke
       v-for="joke in jokes"
       :key="joke.id"
@@ -13,10 +15,12 @@
 <script>
 import axios from 'axios'
 import Joke from '../../components/Joke.vue'
+import SearchJokes from '../../components/SearchJokes.vue'
 
 export default {
   components: {
-    Joke
+    Joke,
+    SearchJokes
   },
   data(){
     return{
@@ -36,6 +40,22 @@ export default {
     } catch (error) {
       console.log(error)
     }
+  },
+  methods:{
+    async searchText(text){
+       const config = {
+          headers: {
+            Accept: 'application/json'
+          }
+        }
+        try {
+          const res = await axios.get(`https://icanhazdadjoke.com/search?term=${text}`, config)
+          // console.log(res.data.results)
+          this.jokes = res.data.results
+        } catch (error) {
+          console.log(error)
+        }
+      }
   },
   head(){
     return {

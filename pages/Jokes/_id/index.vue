@@ -33,7 +33,7 @@ export default {
   },
   head() { //the head section on the html
     return {
-      title: this.joke,
+      title: this.joke, //can make the title dynamic 
       meta: [
         {
           hid: 'description', //unqiue idenfier
